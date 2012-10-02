@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>9dbs-45mins</title>
+    
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+    <link href="css/impress-demo.css" rel="stylesheet" />
+    
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+    <style type="text/css">
+        .title {
+            background-color: #CCCCCC;
+            border-radius: 10px 10px 0 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 20px 0px 10px 0px;
+            width: 100%;
+        }
+        .language {
+            padding-left: 20px;
+            color: #666;
+            font-weight: bold;
+            font-size: 40px;
+        }
+        .timer {
+            font-size: 35px;
+            font-weight: bold;
+            font-family: monospace,monospace;
+            width: 120px;
+            height: 50px;
+            float: right;
+            padding: 0 20px 0 0;
+        }
+
+        .timer > span {
+            width: 48%;
+            height: 50px;
+            text-align: right;
+        }
+
+        .timer #minute {
+            float: left;
+        }
+
+        .timer #second {
+            float: right;
+        }
+
+        .timer span div {
+            background: #444;
+            color: papayawhip;
+            padding: 5px 7px 1px 0px;
+            border-radius: 10px;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        a {
+            font-size: 18pt;
+        }
+    </style>
+
+</head>
+
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+
+    <!-- INTRO -->
+    <div id="introduction" data-notitle="true" data-x="0" data-y="0" class="step slide">
+        <q>
+            <p>9 Databases in 45 minutes</p>
+            <p class="bottom">
+                <a href="https://github.com/milespomeroy/9dbs-45mins">https://github.com/milespomeroy/9dbs-45mins</a>
+            </p>
+        </q>
+    </div>
+
+    <div id="us" data-title="Us" data-notimer="true" data-x="1000" data-y="0" class="step slide">
+        <q>
+            <ul>
+                <li>Miles Pomeroy<br />@nonsensequel</li>
+                <li>Chad Maughan<br/>@chadmaughan</li>
+                <li>Jonathan Geddes</li>
+            </ul>
+        </q>
+    </div>
+
+    <!-- POSTGRES - Chad-->
+    <l id="postgres" class="lang"></l>
+
+    <!-- COUCHDB - Miles -->
+    <l id="couchdb" class="lang"></l>
+
+    <!-- CASSANDRA - Jon -->
+    <l id="cassandra" class="lang"></l>
+
+    <!-- RIAK - Chad -->
+    <l id="riak" class="lang"></l>
+
+    <!-- VOLTDB - Miles-->
+    <l id="voltdb" class="lang"></l>
+
+    <!-- MONGODB - Jon -->
+    <l id="mongodb" class="lang"></l>
+
+    <!-- NEO4J - Chad -->
+    <l id="neo4j" class="lang"></l>
+
+    <!-- HBASE - Miles -->
+    <l id="hbase" class="lang"></l>
+
+    <!-- REDIS - Jon -->
+    <l id="redis" class="lang"></l>
+
+    <!-- OVERVIEW -->
+    <div id="overview" class="step" data-x="5000" data-y="5000" data-scale="15"></div>
+
+</div>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+        console.log("loading templates");
+        $('.lang').each(function(i) {
+
+            var lang = $(this).attr('id');
+            console.log("getting language: " + lang);
+
+            $.get('templates/' + lang + '.html', function (data) {
+                console.log("loaded template: " + lang);
+                $('#' + lang).replaceWith(data);
+
+                $("div[data-lang='" + lang + "']").each(function(index) {
+                    $(this).attr("data-y", (i + 1) * 1000);
+                    $(this).attr("data-x", index * 1000);
+                    console.log('positioning: ' + lang + ', data-x: ' + $(this).attr('data-x')+ ' data-y: ' + $(this).attr('data-y'));
+                });
+            });
+        });
+
+        init();
+    });
+
+    var seconds = 300
+    var total = seconds;
+    var timer = null;
+    var startedTimers = [];
+
+    function clearTimer() {
+        console.log('clear timer');
+        total = seconds;
+        clearInterval(timer);
+        timer = null;
+    }
+
+    function startTimer(timerName) {
+        if(jQuery.inArray(timerName, startedTimers) < 0) {
+
+            if(timer != null) {
+                clearTimer();
+            }
+
+            console.log("started timer: " + timerName);
+            startedTimers.push(timerName);
+
+            timer = setInterval(function () {
+                total--;
+
+                // clear the timer if it gets to zero
+                if(total == 0) {
+                    clearTimer();
+                }
+                else {
+
+                    var min = Math.floor(total / 60);
+                    $('#minute > div').text(pad(min));
+
+                    var sec = total % 60;
+                    $('#second > div').text(pad(sec));
+                }
+            }, 1000);
+        }
+        else {
+            console.log("already started: " + timer);
+        }
+    }
+
+    function pad(number) {
+        number = '' + number;
+        while (number.length < 2) {
+            number = '0' + number;
+        }
+        return number;
+    }
+
+</script>
+
+<script>
+    if ("ontouchstart" in document.documentElement) {
+        document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+    }
+</script>
+
+<script type="text/javascript" src="js/impress.js"></script>
+<script type="text/javascript" src="js/handlebars-1.0.0.beta.6.js"></script>
+<script type="text/javascript">
+    function init() {
+        setTimeout(function() {
+            console.log('init');
+            impress().init();
+        }, 1000);
+    }
+</script>
+
+</body>
+</html>
