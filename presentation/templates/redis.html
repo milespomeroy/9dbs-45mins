@@ -1,3 +1,123 @@
 <div id="redis" data-title="Redis" data-timer="true" data-lang="redis" class="step slide">
-    <q></q>
+</div>
+
+<div id="redis-intro" data-title="Introduction" data-timer="true" data-lang="redis" class="step slide">
+    <q>
+      <ul>
+        <li>Project started in 2009</li>
+        <li>Created by Salvatore Sanfilippo</li>
+        <li>Written in C</li>
+      </ul>
+      REDIS = <em>RE</em>mote <em>DI</em>ctionary <em>S</em>ervice
+    </q>
+</div>
+
+<div id="redis-resources" data-title="Resources" data-timer="true" data-lang="redis" class="step slide">
+    <q>
+      <ul>
+        <li>Homepage: <a href="redis.io">redis.io</a> </li>
+        <li>
+          Great Tutorial: 
+          <a href="http://blog.mjrusso.com/2010/10/17/redis-from-the-ground-up.html#heading_toc_j_0">
+            http://blog.mjrusso.com/2010/10/17/redis-from-the-ground-up.html#heading_toc_j_0
+          </a> 
+        </li>
+      </ul>
+    </q>
+</div>
+
+<div id="redis-basics" data-title="Basics" data-timer="true" data-lang="redis" class="step slide">
+    <q>
+      <ul>
+        <li>NoSQL database</li>
+        <li>Key-Value store</li>
+        <ul>
+          <li>Values: strings, lists, hashes, sets, ordered sets</li>
+        </ul>
+        <li>Drivers for loads of languages</li>
+        <li>Open Source</li>
+      </ul>
+    </q>
+</div>
+
+<div id="redis-features" data-title="Core Features" data-timer="true" data-lang="redis" class="step slide">
+    <q>
+      <ul>
+        <li>Swiss Army Knife of DBs</li>
+        <li>Many utility features</li>
+        <li>Data Structures</li>
+        <li>Pubsub &amp; blocking queues</li>
+        <li>Scriptable in Lua</li>
+      </ul>
+    </q>
+</div>
+
+<div id="redis-why" data-title="Pros and Cons" data-timer="true" data-lang="redis" class="step slide">
+    <q>
+      <h3>Pros:</h3>
+      <ul>
+        <li>All in memory</li>
+      </ul>
+      <h3>Cons:</h3>
+      <ul>
+        <li>All in memory</li>
+      </ul>
+    </q>
+</div>
+
+<div id="redis-commands" data-title="Commands" data-timer="true" data-lang="redis" class="step slide">
+    <q>
+      <ul>
+        <li>COMMAND arg1 arg2 arg3</li>
+        <li>db.command(arg1, arg2, arg3);</li>
+      </ul>
+    </q>
+</div>
+
+<div id="redis-strings" data-title="Strings" data-timer="true" data-lang="redis" class="step slide">
+    <q>
+      <ul>
+        <li>GET key</li>
+        <li>SET key value</li>
+        <li>[INCR|DECR] key</li>
+        <li>[INCRBY|DECRBY] key amount</li>
+        <li>Atomic increment!</li>
+        <li>INCR newKey => SET newKey 1</li>
+      </ul>
+    </q>
+</div>
+
+<div id="redis-expire" data-title="Expire/TTL" data-timer="true" data-lang="redis" class="step slide">
+    <q>
+      <ul>
+        <li>Expire key seconds</li>
+        <li>TTL key</li>
+        <li>Easy session storage</li>
+      </ul>
+    </q>
+</div>
+
+<div id="redis-lists" data-title="Lists" data-timer="true" data-lang="redis" class="step slide">
+    <q>
+      <ul>
+        <li>[LPUSH|RPUSH] listname item</li>
+        <li>LLEN listname</li>
+        <li>[LPOP|RPOP] list</li>
+        <li>LRANGE list start end</li>
+        <li>LRANGE list 0 -1</li>
+      </ul>
+    </q>
+</div>
+
+<div id="redis-sets" data-title="Sets" data-timer="true" data-lang="redis" class="step slide">
+    <q>
+      <ul>
+        <li>SADD setname item</li>
+        <li>SREM setname item</li>
+        <li>SISMEMBER setname item</li>
+        <li>SUNION set1 set2</li>
+        <li>SINTER set1 set2</li>
+        <li>SINTERSTORE set1 set2 newset</li>
+      </ul>
+    </q>
 </div>
