@@ -1,3 +1,98 @@
 <div id="postres" data-title="Postgres" data-timer="true" data-lang="postgres" class="step slide">
-    <q></q>
+    <q>
+        <p>
+            <br>
+            <img src="/images/postgresql.png" alt="">
+        </p>
+    </q>
+</div>
+
+<div id="pg-basic" data-title="Introduction" data-timer="true" data-lang="postgres" class="step slide">
+    <q><p>"World's most advanced open source database"</p></q>
+</div>
+
+<div id="pg-pronunciation" data-title="Pronunciation" data-timer="true" data-lang="postgres" class="step slide">
+    <q><p>Post - greS - Q - L</p></q>
+</div>
+
+<div id="pg-history" data-title="Postgres" data-timer="true" data-lang="postgres" class="step slide">
+    <q>
+        <ul>
+            <li>1970s (Berkley) Interactive Graphics and Retrieval System, or “Ingres”.</li>
+            <li>1980s, "post-Ingres" shortened to Postgres.</li>
+            <li>Open-sourced 1996</li>
+        </ul>
+    </q>
+</div>
+
+<div id="pg-setup" data-title="Setup" data-timer="true" data-lang="postgres" class="step slide">
+    <q>
+        <q>
+            <ul>
+                <li>Linux (Debian based):<br> <code>apt-get install postgresql-9.2</code></li>
+                <li>OSX: http://postgresapp.com</li>
+                <li>Windows: binary from http://postgresql.org</li>
+            </ul>
+        </q>
+    </q>
+</div>
+
+<div id="pg-features" data-title="Postgres" data-timer="true" data-lang="postgres" class="step slide">
+    <q>Has most of the features of commercial solutions but is GPL</q>
+</div>
+
+<div id="pg-notable-features" data-title="Notable Features" data-timer="true" data-lang="postgres" class="step slide">
+    <q>
+        <ul>
+            <li>18 procedural languages (PL/V8)</li>
+            <li>XML data type (XPath queries)</li>
+            <li>hstore - key/value pairs</li>
+        </ul>
+
+    </q>
+</div>
+
+<div id="pg-92" data-title="9.2 Release" data-timer="true" data-lang="postgres" class="step slide">
+    <q>
+        <p>Big release recently on September 10, 2012</p>
+    </q>
+</div>
+
+<div id="pg-index-only" data-title="Index-only scans" data-timer="true" data-lang="postgres" class="step slide">
+    <q>Big performance with new visibility map, prevents real tuple "visits"</q>
+</div>
+
+<div id="pg-replication" data-title="Replication Improvements" data-timer="true" data-lang="postgres" class="step slide">
+    <q>Cascading, streaming replication</q>
+</div>
+
+<div id="pg-json-datatype" data-title="JSON datatype" data-timer="true" data-lang="postgres" class="step slide">
+    <q><code>=# SELECT row_to_json(demo) FROM demo;
+        row_to_json
+        --------------------------------------
+        {"username":"john","posts":121}
+        {"username":"mickael","posts":215}
+        (2 rows)
+    </code></q>
+</div>
+
+<div id="pg-range-type" data-title="Range Types" data-timer="true" data-lang="postgres" class="step slide">
+    <q><code>=# SELECT * FROM my_range WHERE period && '[2012-01-03 00:00:00,2012-01-03 12:00:00]';
+        period
+        -----------------------------------------------------
+        ["2012-01-01 00:00:00+01","2012-03-01 00:00:00+01"]
+    </code>
+    </q>
+</div>
+
+<div id="pg-heroku" data-title="Heroku Goodness" data-timer="true" data-lang="postgres" class="step slide">
+    <q>
+        SQL Database-as-a-Service
+        <ul>
+            <li>Dataclips</li>
+            <li>Fork</li>
+            <li>Follow</li>
+            <li>Connect from anywher</li>
+        </ul>
+    </q>
 </div>
