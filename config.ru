@@ -7,8 +7,8 @@ run lambda { |env|
     200,
     {
       'Content-Type' => 'text/html',
-      'Cache-Control' => 'presentation', max-age=86400'
+      'Cache-Control' => 'presentation, max-age=86400'
     },
-    File.open('presentation/index.html', Rile::RDONLY)
+    File.open('presentation/index.html', File::RDONLY)
   ]
 }
