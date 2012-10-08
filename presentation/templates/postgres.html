@@ -2,7 +2,7 @@
     <q>
         <p>
             <br>
-            <img src="/images/postgresql.png" alt="">
+            <img src="/images/postgresql.png" alt="Postgresql" width="300">
         </p>
     </q>
 </div>
@@ -54,12 +54,12 @@
 
 <div id="pg-92" data-title="9.2 Release" data-timer="true" data-lang="postgres" class="step slide">
     <q>
-        <p>Big release recently on September 10, 2012</p>
+        <p>Recent major release <br>on September 10, 2012</p>
     </q>
 </div>
 
 <div id="pg-index-only" data-title="Index-only scans" data-timer="true" data-lang="postgres" class="step slide">
-    <q>Big performance with new visibility map, prevents real tuple "visits"</q>
+    <q>Big performance gain with new visibility map, prevents real tuple "visits"</q>
 </div>
 
 <div id="pg-replication" data-title="Replication Improvements" data-timer="true" data-lang="postgres" class="step slide">
@@ -67,19 +67,19 @@
 </div>
 
 <div id="pg-json-datatype" data-title="JSON datatype" data-timer="true" data-lang="postgres" class="step slide">
-    <q><code>=# SELECT row_to_json(demo) FROM demo;
+    <q><code>=# SELECT row_to_json(demo)
+        &nbsp; &nbsp; &nbsp; FROM demo;
         row_to_json
-        --------------------------------------
+        --------------------------------
         {"username":"john","posts":121}
         {"username":"mickael","posts":215}
-        (2 rows)
     </code></q>
 </div>
 
 <div id="pg-range-type" data-title="Range Types" data-timer="true" data-lang="postgres" class="step slide">
     <q><code>=# SELECT * FROM my_range WHERE period && '[2012-01-03 00:00:00,2012-01-03 12:00:00]';
         period
-        -----------------------------------------------------
+        --------------------------------
         ["2012-01-01 00:00:00+01","2012-03-01 00:00:00+01"]
     </code>
     </q>
@@ -92,7 +92,7 @@
             <li>Dataclips</li>
             <li>Fork</li>
             <li>Follow</li>
-            <li>Connect from anywher</li>
+            <li>Connect from anywhere</li>
         </ul>
     </q>
 </div>
