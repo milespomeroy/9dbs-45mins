@@ -6,7 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>9dbs-45mins</title>
     
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <link href="css/fontface.css" rel="stylesheet" />
 
     <link href="css/impress-demo.css" rel="stylesheet" />
     
@@ -68,8 +68,27 @@
             font-size: 18pt;
         }
         
-        h3 {
+        tr, td, th {
+         border: 2px solid #CCC; 
         }
+        
+        th {
+         font-weight: bold; 
+         border-bottom: 4px solid #444;
+        }
+        
+        td, th {
+          padding: 0.1em 0.3em;
+        }
+        
+        blockquote {
+          margin-left: 50px;
+        }
+        
+        blockquote:first-letter {
+          font-size: 400%;
+        }
+        
     </style>
 
 </head>
@@ -88,7 +107,8 @@
         <q>
             <p>9 Databases in 45 minutes</p>
             <p class="bottom">
-                <a href="https://github.com/milespomeroy/9dbs-45mins">https://github.com/milespomeroy/9dbs-45mins</a>
+              <a href="http://nine-databases.herokuapp.com">nine-databases.herokuapp.com</a><br>
+              <a href="https://github.com/milespomeroy/9dbs-45mins">github.com/milespomeroy/9dbs-45mins</a>
             </p>
         </q>
     </div>
@@ -135,7 +155,7 @@
 
 </div>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
 <script type="text/javascript">
 
     $(document).ready(function() {
@@ -155,10 +175,19 @@
                     $(this).attr("data-x", index * 1000);
                     console.log('positioning: ' + lang + ', data-x: ' + $(this).attr('data-x')+ ' data-y: ' + $(this).attr('data-y'));
                 });
+                
+                // if not localhost than hide images by displaying alt text
+                if (window.location.hostname != 'localhost') {
+                  $('img').each(function(i) {
+                    var altText = $(this).attr('alt');
+                    $(this).parent().html(altText);
+                  });
+                }
             });
         });
-
+        
         init();
+        
     });
 
     var seconds = 300
@@ -222,7 +251,6 @@
 </script>
 
 <script type="text/javascript" src="js/impress.js"></script>
-<script type="text/javascript" src="js/handlebars-1.0.0.beta.6.js"></script>
 <script type="text/javascript">
     function init() {
         setTimeout(function() {
@@ -230,6 +258,8 @@
             impress().init();
         }, 1000);
     }
+    
+      
 </script>
 
 </body>
