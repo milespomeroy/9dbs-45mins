@@ -1,3 +1,158 @@
 <div id="mongodb" data-title="MongoDB" data-timer="true" data-lang="mongodb" class="step slide">
     <q></q>
 </div>
+
+<div id="mongodb-intro" data-title="Introduction" data-timer="true" data-lang="mongodb" class="step slide">
+    <q>
+      <ul>
+        <li>Initially released in 2009</li>
+        <li>Developed by 10gen</li>
+        <li>Written in C++</li>
+      </ul>
+      mongodb = hu<em>MONGO</em>us database
+    </q>
+</div>
+
+<div id="mongodb-resources" data-title="Resources" data-timer="true" data-lang="mongodb" class="step slide">
+    <q>
+      <ul>
+        <li>Homepage: <a href="www.mongodb.org">www.mongodb.org</a> </li>
+        <li>
+          Great Tutorial: 
+          <a href="http://try.mongodb.org/">http://try.mongodb.org/</a> 
+        </li>
+      </ul>
+    </q>
+</div>
+
+<div id="mongodb-basics" data-title="Basics" data-timer="true" data-lang="mongodb" class="step slide">
+    <q>
+      <ul>
+        <li>NoSQL database</li>
+        <li>Document-oriented</li>
+        <li>JSON/BSON</li>
+        <li>Drivers for loads of languages</li>
+        <li>Open Source (GNU AGPL)</li>
+        <li>Super programmer-friendly</li>
+      </ul>
+    </q>
+</div>
+
+<div id="mongodb-features" data-title="Core Features" data-timer="true" data-lang="mongodb" class="step slide">
+    <q>
+      <ul>
+        <li>Ad hoc queries</li>
+        <li>Indexing</li>
+        <li>Replication</li>
+        <li>GridFS</li>
+        <li>Aggregation</li>
+      </ul>
+    </q>
+</div>
+
+<div id="mongodb-why" data-title="Pros and Cons" data-timer="true" data-lang="mongodb" class="step slide">
+    <q>
+      <h3>Pros:</h3>
+      <ul>
+        <li>Very Easy to work with</li>
+      </ul>
+      <h3>Cons:</h3>
+      <ul>
+        <li>No joins</li>
+        <li>No transactions</li>
+      </ul>
+    </q>
+</div>
+
+<div id="mongodb-cli" data-title="Console" data-timer="true" data-lang="mongodb" class="step slide">
+    <q>
+      <ul>
+        <li>JavaScript Shell</li>
+        <li>Very similar to NodeJS drivers</li>
+        <li>Drivers written in <em>your</em> language</li>
+      </ul>
+    </q>
+</div>
+
+<div id="mongodb-save" data-title="Save" data-timer="true" data-lang="mongodb" class="step slide">
+    <q>
+      <code>
+      <pre>
+db.pres.save({
+    name:"Jonathan"
+    dbs:[
+        "Mongo", 
+        "Marklogic", 
+        "Redis"
+    ]});
+      </pre>
+      </code>
+    </q>
+</div>
+
+<div id="mongodb-find1" data-title="Find" data-timer="true" data-lang="mongodb" class="step slide">
+    <q>
+      <code>
+        <pre>
+db.pres.find();
+        </pre>
+      </code>
+    </q>
+</div>
+
+<div id="mongodb-find2" data-title="Find" data-timer="true" data-lang="mongodb" class="step slide">
+    <q>
+      <code>
+        <pre>
+db.pres.find({name:"Jonathan"});
+        </pre>
+      </code>
+    </q>
+</div>
+
+<div id="mongodb-find3" data-title="Find" data-timer="true" data-lang="mongodb" class="step slide">
+    <q>
+      <code>
+        <pre>
+db.pres.find({
+    dbs:{
+        $all:["Mongo"]
+    }
+});
+        </pre>
+      </code>
+    </q>
+</div>
+
+<div id="mongodb-operators" data-title="Operators" data-timer="true" data-lang="mongodb" class="step slide">
+    <q>
+      <ul>
+        <li>Comparison: $lt $gt $lte $gte</li>
+        <li>Logical: $and $or $nor $not</li>
+        <li>Element: $exists $type</li>
+        <li>Arbitrary JavaScript: $where</li>
+        <li>Regex: $regex</li>
+        <li>Geospacial</li>
+      </ul>
+    </q>
+</div>
+
+<div id="mongodb-mapreduce" data-title="Map Reduce" data-timer="true" data-lang="mongodb" class="step slide">
+    <q>
+      <ul>
+        <li>Run a "map" function over every item</li>
+        <li>Run a "reduce" function over groups</li>
+        <li>Continue until there's only one final result</li>
+      </ul>
+    </q>
+</div>
+
+<div id="mongodb-aggregation" data-title="Aggregation" data-timer="true" data-lang="mongodb" class="step slide">
+    <q>
+      <ul>
+        <li>Map Reduce is powerful but often overkill</li>
+        <li>Aggregation is a pipeline</li>
+        <li>Transform, filter, create, unwind, at each step</li>
+      </ul>
+    </q>
+</div>
