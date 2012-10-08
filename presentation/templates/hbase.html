@@ -2,7 +2,7 @@
     <q>
       <div style="height: 100px"></div>
       <p>
-        <img src="images/hbase_logo.png">
+        <img src="images/hbase_logo.png" alt="HBase">
       <p>
     </q>
 </div>
@@ -20,9 +20,11 @@
 
 <div id="hbase-bigtable" data-title="BigTable" data-timer="true" data-lang="hbase" class="step slide">
   <q>
-    A Bigtable is a sparse, distributed, persistent multidimensional sorted map.
-    <br><br>
-    <a href="http://research.google.com/archive/bigtable.html" target="_blank">"Bigtable: A Distributed Storage System for Structured Data"</a>
+    <blockquote>
+    “<span style="display:none">A</span>A Bigtable is a sparse, distributed, persistent multidimensional sorted map.”
+    </blockquote>
+    <br>
+    <a href="http://research.google.com/archive/bigtable.html" target="_blank">“Bigtable: A Distributed Storage System for Structured Data”</a>
     <br>
     Chang et al. (2006)
   </q>
@@ -30,7 +32,7 @@
 
 <div id="hbase-wat" data-title="Wat" data-timer="false" data-lang="hbase" class="step slide">
   <q>
-    <p><img src="images/wat.jpg"></p>
+    <p><img src="images/wat.jpg" alt="Wat"></p>
   </q>
 </div>
 
@@ -42,6 +44,17 @@
       <li>Distributed on commodity hardware (no Exadata needed)</li> 
       <li>Strict consistency</li>
     </ul>
+  </q>
+</div>
+
+<div id="hbase-columnar" data-title="Columnar Store" data-timer="true" data-lang="hbase" class="step slide">
+  <q>
+    <p><img src="images/columnar-data-model.png" alt="Columnar Data Model"></p>
+    <p style="font-size: 40%; line-height: 1.5em; text-align: left;">
+    “Seven Databases in Seven Weeks”<br>Redmond & Wilson (2012) Pragmatic Programmers
+    </p>
+    <div style="height: 0.5em"></div>
+    • No data types. Everything is byte[].
   </q>
 </div>
 
@@ -81,5 +94,33 @@
         <td>Binary protocol</td>
       </tr>
     </table>
+  </q>
+</div>
+
+<div id="hbase-when" data-title="When to use" data-timer="true" data-lang="hbase" class="step slide">
+  <q>
+    <ul>
+      <li>Made to work with Hadoop</li>
+      <li>Really big data</li>
+      <li>Big queries</li>
+      <li>High volume of writes</li>
+    </ul>
+  </q>
+</div>
+
+<div id="hbase-setup" data-title="Set Up" data-timer="true" data-lang="hbase" class="step slide">
+  <q>
+    <ol>
+      <b>Three modes</b>
+      <li>Stand-alone mode</li>
+      <li>Pseudodistributed mode</li>
+      <li>Fully distributed mode</li>
+    </ol>
+    Recommendation is no fewer than five nodes.
+  </q>
+</div>
+
+<div id="hbase-example" data-title="Example" data-timer="true" data-lang="hbase" class="step slide">
+  <q>
   </q>
 </div>
