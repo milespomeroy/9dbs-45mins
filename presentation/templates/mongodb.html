@@ -78,7 +78,7 @@
     <q>
       <code>
       <pre>
-db.pres.save({
+db.presentation.save({
     name:"Jonathan"
     dbs:[
         "Mongo", 
@@ -94,7 +94,7 @@ db.pres.save({
     <q>
       <code>
         <pre>
-db.pres.find();
+db.presentation.find();
         </pre>
       </code>
     </q>
@@ -104,7 +104,7 @@ db.pres.find();
     <q>
       <code>
         <pre>
-db.pres.find({name:"Jonathan"});
+db.presentation.find({name:"Jonathan"});
         </pre>
       </code>
     </q>
@@ -114,9 +114,9 @@ db.pres.find({name:"Jonathan"});
     <q>
       <code>
         <pre>
-db.pres.find({
+db.presentation.find({
     dbs:{
-        $all:["Mongo"]
+        $all:["Mongo", "Redis"]
     }
 });
         </pre>
