@@ -10,6 +10,8 @@
 
     <link href="css/impress-demo.css" rel="stylesheet" />
     
+    <script type="text/javascript" src="js/buzz.js"></script>
+    
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
@@ -159,6 +161,10 @@
     <!-- OVERVIEW -->
     <div id="overview" class="step" data-x="5000" data-y="5000" data-scale="15"></div>
 
+    <audio controls preload="auto" autobuffer>
+        <source src="sounds/air-horn.mp3" />
+    </audio>
+
 </div>
 
 <script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
@@ -196,10 +202,24 @@
         
     });
 
-    var seconds = 300
+    var seconds = 300;
     var total = seconds;
     var timer = null;
     var startedTimers = [];
+    
+    var horn = new buzz.sound("/sounds/air-horn", {
+        formats: ["mp3"],
+        preload: true,
+        autoplay: false,
+        loop: false
+    });
+
+    var tone = new buzz.sound("/sounds/tone", {
+        formats: ["mp3"],
+        preload: true,
+        autoplay: false,
+        loop: false
+    });
 
     function clearTimer() {
         console.log('clear timer');
@@ -224,6 +244,8 @@
                 // clear the timer if it gets to zero
                 if(total == 0) {
                     clearTimer();
+                    horn.load();
+                    horn.play();
                 }
                 else {
 
@@ -231,6 +253,10 @@
                     $('#minute > div').text(pad(min));
 
                     var sec = total % 60;
+                    if(sec == 0) {
+                        tone.load();
+                        tone.play();
+                    }
                     $('#second > div').text(pad(sec));
                 }
             }, 1000);
