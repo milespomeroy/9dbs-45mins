@@ -1,0 +1,7 @@
+curl -X POST http://localhost:8098/mapred -H "Content-Type: application/json" -d @-
+
+{"inputs":"goog",
+ "query":[{"map":{"language":"javascript",
+                  "source":"function(value, keyData, arg) { var data = Riak.mapValuesJson(value)[0]; if(data.High && parseFloat(data.High) > 600.00) return [value.key]; else return [];}",
+                  "keep":true}}]
+}

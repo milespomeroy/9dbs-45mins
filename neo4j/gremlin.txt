@@ -1,0 +1,8 @@
+Gremlin.defineStep( 'costars', [Vertex, Pipe], { _().sideEffect{start = it}.outE('ACTED_IN').inV.inE('ACTED_IN').outV.filter{!start.equals(it)}.dedup} )
+
+// find the nodes that we want to start (kevin bacon) and end (brad pitt) on
+bacon = g.V.filter{it.name=='Kevin Bacon'}.next()
+pitt = g.V.filter{it.name=='Brad Pitt'}.next()
+
+// find all actors with 4 degrees of separation (or less)
+(pitt.costars.loop(1){it.loops < 4 & !it.object.equals(bacon)}.filter{it.equals(bacon)}.paths).next().name.grep{it}
