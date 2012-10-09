@@ -1,0 +1,39 @@
+VoltDB Demo
+===========
+
+Path
+----
+
+> cd /Users/miles/voltdb/doc/tutorials/helloworld
+> open .
+
+Show schema file (helloworld.sql), stored procs (Insert.java, Select.java), and app (Client.java).
+
+Compile Source
+--------------
+
+> export CLASSPATH="./:/Users/miles/voltdb/lib/*:/Users/miles/voltdb/voltdb/*"
+
+> javac Client.java
+
+> javac Insert.java
+> javac Select.java
+
+Create Catalog Jar
+------------------
+
+> voltcompiler ./ project.xml helloworld.jar
+
+Start DB
+--------
+
+> voltdb host localhost catalog helloworld.jar deployment deployment.xml
+
+Run App
+-------
+
+Do this in another window from the running db. Set classpath again.
+
+> export CLASSPATH="./:/Users/miles/voltdb/lib/*:/Users/miles/voltdb/voltdb/*"
+
+> java Client

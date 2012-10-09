@@ -1,0 +1,50 @@
+Local HBase Configuration
+=========================
+
+Configuration file:
+
+/usr/local/Cellar/hbase/0.94.0/libexec/conf/hbase-site.xml
+
+Start HBase
+-----------
+
+> start-hbase.sh
+
+Stop HBase
+----------
+
+> stop-hbase.sh
+
+HBase Shell
+-----------
+
+> hbase shell
+
+Create table
+------------
+
+hbase> create '<tablename>', '<column-family>'
+
+Must provide a column family.
+
+Describe Table Structure
+------------------------
+
+hbase> describe '<tablename>'
+
+See column family and how setting are set up by column families.
+
+Inserting/Updating/Retrieving
+-----------------------------
+
+hbase> put '<tablename>', '<row-key>', '<column-family>:<column>', '<value>'
+hbase> get '<tablename>', '<row-key>', '<column-family>:<column>'
+
+Notice different timestamp if multiple.
+
+Go Back in Time
+---------------
+
+hbase> get '<tablename>', '<row-key>', {TIMERANGE => [<start-timestamp>,<end-timestamp>]}
+
+hbase> get '<tablename>', '<row-key>', {COLUMN => '<column-family>:<column-name>', VERSIONS => 3}
