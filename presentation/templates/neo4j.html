@@ -35,6 +35,12 @@
     </q>
 </div>
 
+<div id="neo4j-why" data-title="Why" data-lang="neo4j" data-timer="true" class="step slide">
+    <q>
+        <code>select distinct uf3.* from t_user_friend uf1 inner join t_user_friend uf2 on uf1.user_1 = uf2.user_2 inner join t_user_friend uf3 on uf2.user_1 = uf3.user_2 where uf1.user_1 = ?</code>
+    </q>
+</div>
+
 <div id="neo4j-versions" data-title="Versions" data-lang="neo4j" data-timer="true" class="step slide">
     <q>
         <ul>
